@@ -1,2 +1,2 @@
 # Pokemonzinho
-Recriação, em Assembly RISC-V, do Pokémon FireRed/LeafGreen em versão reduzida para o trabalho final de OAC (semestre 2/2022)
+Para iniciar o jogo, escreva "fpgrars-x86_64-pc-windows-gnu.exe main.s" no prompt de comando do Windows.
