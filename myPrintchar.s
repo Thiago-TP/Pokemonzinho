@@ -1,10 +1,10 @@
 .data
-TempBuffer:	.space 512
-.align 2
-
-# Tabela de caracteres desenhados segundo a fonte 8x8 pixels do ZX-Spectrum # change to pkmn FireRed font
-LabelTabChar:
-.word 	0x00000000, 0x00000000, 0x10101010, 0x00100010, 0x00002828, 0x00000000, 0x28FE2828, 0x002828FE, 
+myLabelTabChar:	# sprites ajustadas para 6x10
+		# a metade superior e a word da esquerda, e a inferior a da direita
+		# bit da word: 0 => fundo, 1 => frente, 2 => sombra 
+#	' '	    		'!'			'"'			'#'
+.word 	0x00000000, 0x00000000, 0x10101010, 0x00100010, 0x00002828, 0x00000000, 0x28FE2828, 0x002828FE,
+#	'$'			'%'			'&'			''' 
 	0x38503C10, 0x00107814, 0x10686400, 0x00004C2C, 0x28102818, 0x003A4446, 0x00001010, 0x00000000, 
 	0x20201008, 0x00081020, 0x08081020, 0x00201008, 0x38549210, 0x00109254, 0xFE101010, 0x00101010, 
 	0x00000000, 0x10081818, 0xFE000000, 0x00000000, 0x00000000, 0x18180000, 0x10080402, 0x00804020, 
@@ -29,37 +29,28 @@ LabelTabChar:
 	0x28440000, 0x00442810, 0x24240000, 0x38041C24, 0x043C0000, 0x003C1008, 0x2010100C, 0x000C1010, 
 	0x10101010, 0x00101010, 0x04080830, 0x00300808, 0x92600000, 0x0000000C, 0x243C1818, 0xA55A7E3C, 
 	0x99FF5A81, 0x99663CFF, 0x10280000, 0x00000028, 0x10081020, 0x00081020
-
+	
 .text
-.include "../funcoes/AnimaHero.s"
-.include "../funcoes/AreaAberta.s"
-.include "../funcoes/AtualizaEstadoHero.s"
-.include "../funcoes/AtualizaPoseHero.s"
-.include "../funcoes/AnimaOak.s"
-.include "../funcoes/AtualizaPoseOak.s"
-.include "../funcoes/ByteCinza.s"
-.include "../funcoes/Cutscene.s"
-.include "../funcoes/DecideTile.s"
-.include "../funcoes/Dialogo.s"
-.include "../funcoes/EscolheInicial.s"
-.include "../funcoes/EscolhePokemon.s"
-.include "../funcoes/EscondeSprite.s"
-.include "../funcoes/GuardaFundo.s"
-.include "../funcoes/ImprimeFundo.s"
-.include "../funcoes/InicializaMacros.s"
-.include "../funcoes/Musica.s"
-.include "../funcoes/Print.s"
-.include "../funcoes/PrintChar.s"
-.include "../funcoes/PrintInt.s"
-.include "../funcoes/PrintInversoH.s"
-.include "../funcoes/PrintInversoHV.s"
-.include "../funcoes/PrintInversoV.s"
-.include "../funcoes/PrintTransposto.s"
-.include "../funcoes/PrintTranspostoH.s"
-.include "../funcoes/PrintString.s"
-.include "../funcoes/PrintTilemap.s"
-.include "../funcoes/SetupGame.s"
-.include "../funcoes/SetupMenu.s"
-.include "../funcoes/Sleep_with_music.s"
-.include "../funcoes/Sleep.s"
-.include "../funcoes/VerificaColisao.s"
+main:
+	li	a0, ' '		# char de teste
+	li	a1, 157
+	li	a2, 110
+	li	a3, 0xFF200000
+	lw	a3, 0(a3)
+	li	a4, 0x00feff00	# fundo branco, letra preta, sombra "cinza"
+	jal	myPrintChar	# debug
+	
+	fpg:	j fpg		# fim do programa (loop inf)
+	li	a7, 10		# fim do programa (syscall)
+	ecall
+
+#	- Args -		#
+#	a0 = ascii char		#
+#	a1 = x no bmp		#
+#	a2 = y no bmp		#
+#	a3 = frame no bmp	#
+#	a4 = 0x00ssbbff 	# (0xff=frente/foreground, 0xbb=fundo/background, 0xss=sombra/shadow)
+	
+#	- Internas -		#
+myPrintChar: # wip
+	ret
