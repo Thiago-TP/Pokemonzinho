@@ -160,7 +160,7 @@ nextByte:
 	addi	t5, t5, -1	# len_cont--	
 	bgtz	t5, lineLoop	# não acabaram as linhas? continua impressão : fim da impressão
 
-	ret			# fim da funcao		
+	ret			# fim da função		
 	
 	
 	
