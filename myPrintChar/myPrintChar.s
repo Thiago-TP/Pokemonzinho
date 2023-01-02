@@ -2,8 +2,9 @@
 myCharTable:	# sprites ajustadas para 6x10 (6x11 passa dos 64 bits contidos em 2 words)
 		# a metade superior é a word da esquerda, e a inferior a da direita
 		# bit da word: 0 => fundo, 1 => frente 
+.word
 #	' '	    		'!'			'"'			'#'
-.word 	0x00000000, 0x00000000, 0x10101010, 0x00100010, 0x00002828, 0x00000000, 0x28FE2828, 0x002828FE,
+ 	0x00000000, 0x00000000, 0x04104104, 0x00104004, 0x006db252, 0x00000000, 0x28FE2828, 0x002828FE,
 #	'$'			'%'			'&'			''' 
 	0x38503C10, 0x00107814, 0x10686400, 0x00004C2C, 0x28102818, 0x003A4446, 0x00001010, 0x00000000,
 #	'('			')'			'*'			'+' 
@@ -11,7 +12,7 @@ myCharTable:	# sprites ajustadas para 6x10 (6x11 passa dos 64 bits contidos em 2
 #	','			'-'			'.'			'/' 
 	0x00000000, 0x10081818, 0xFE000000, 0x00000000, 0x00000000, 0x18180000, 0x10080402, 0x00804020, 
 #	'0'			'1'			'2'			'3'
-	0x54444438, 0x00384444, 0x10103010, 0x00381010, 0x0841144e, 0x007c1084, 0x18044438, 0x00384404, 
+	0x1145144e, 0x00391451, 0x04104184, 0x00384104, 0x0841144e, 0x007c1084, 0x18044438, 0x00384404, 
 #	'4'			'5'			'6'			'7'
 	0x7C482818, 0x001C0808, 0x7840407C, 0x00384404, 0x78404438, 0x00384444, 0x1008047C, 0x00202020, 
 #	'8'			'9'			':'			';'
@@ -54,20 +55,22 @@ myCharTable:	# sprites ajustadas para 6x10 (6x11 passa dos 64 bits contidos em 2
 	
 .text
 MAIN:
-	li	a0, ' '		# char de teste
+	li	a0, '"'		# char de teste
 	li	a1, 157
 	li	a2, 110
 	li	a3, 0xFF200000
 	lw	a3, 0(a3)	# frame atual
-	li	a4, 0x0000FF07	# fundo branco, letra preta
+	li	a4, 0x0000FF00	# fundo branco, letra preta
 	jal	myPrintChar	# resultado
 	
-	li	a7, 11
-	ecall			# esperado
-	
 	fpg:	j fpg		# fim do programa (loop inf)
-	li	a7, 10		# fim do programa (syscall)
-	ecall
+
+
+
+
+
+
+
 
 
 
@@ -91,8 +94,8 @@ myPrintChar:
 	addi	sp, sp, -12		# expande a pilha
 	sw	ra, 0(sp)		# guarda ra (funcoes serao chamadas)
 	sw	a0, 4(sp)		# guarda a0 (será modificado)
-	sw	s0, 8(sp)		# guarda s0 (será modificado)
-	
+	sw	s0, 8(sp)		# guarda s0 (será modificado)	
+	sw	s0, 8(sp)		# guarda s1 (será modificado)
 	la	t0, myCharTable
 	addi	t1, a0, -32
 	slli	t1, t1, 3		# t1 = offset em relação à tabela 
