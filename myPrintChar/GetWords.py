@@ -1,6 +1,6 @@
 def GetWord ():
-    abc = input()
-    print("char:", abc, end='\t')
+    ID = input()
+    print("char:", ID, end='\t')
 
     bit_grid = []
     for line in range(11):		 # 10 = altura em pixels de um char    
