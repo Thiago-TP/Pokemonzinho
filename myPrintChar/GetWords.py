@@ -3,7 +3,7 @@ def GetWord ():
     print("char:", ID, end='\t')
 
     bit_grid = []
-    for line in range(11):		 # 10 = altura em pixels de um char    
+    for line in range(10):		 # 10 = altura em pixels de um char    
         bit_grid += input()  
     # print(bit_grid)            # debug
         
