@@ -20,9 +20,9 @@ myCharTable:	# sprites ajustadas para 6x10 (6x11 passa dos 64 bits contidos em 2
 #	'<'			'='			'>'			'?' 
 	0x01084210, 0x10204081, 0x007c0000, 0x000007c0, 0x10204081, 0x01084210, 0x0c45144e, 0x00104004,
 #	'@'			'A'			'B'			'C' 
-	0x25e61f80, 0x00781e65, 0x7C444438, 0x00444444, 0x78444478, 0x00784444, 0x40404438, 0x00384440,
+	0x25e61f80, 0x00781e65, 0x1f45144e, 0x00011451, 0x113d144f, 0x0000f451, 0x0104144e, 0x0000e441,
 #	'D'			'E'			'F'			'G'
-	0x44444478, 0x00784444, 0x7840407C, 0x007C4040, 0x7C40407C, 0x00404040, 0x5C404438, 0x00384444,
+	0x1145144f, 0x0000f451, 0x013c105f, 0x0001f041, 0x7C40407C, 0x00404040, 0x5C404438, 0x00384444,
 #	'H'			'I'			'J'			'K' 
 	0x7C444444, 0x00444444, 0x10101038, 0x00381010, 0x0808081C, 0x00304848, 0x70484444, 0x00444448, 
 #	'L'			'M'			'N'			'O'
@@ -55,7 +55,7 @@ myCharTable:	# sprites ajustadas para 6x10 (6x11 passa dos 64 bits contidos em 2
 	
 .text
 MAIN:
-	li	a0, '@'		# char de teste
+	li	a0, 'E'		# char de teste
 	li	a1, 157
 	li	a2, 110
 	li	a3, 0xFF200000
