@@ -1,4 +1,4 @@
-def GetWord ():
+def get_words():
     ID = input()
     print("char:", ID, end='\t')
 
@@ -7,7 +7,7 @@ def GetWord ():
         bit_grid += input()  
     # print(bit_grid)            # debug
         
-    filtered_bit_grid = list(filter(FilterChar, bit_grid))
+    filtered_bit_grid = list(filter(filter_chars, bit_grid))
     filtered_bit_grid = filtered_bit_grid[::-1]
     # print(filtered_bit_grid)    # debug
 
@@ -19,7 +19,7 @@ def GetWord ():
             nibbles += f'{int(nibble, base=2) : x}'
             nibble = ''
 
-    nibbles = list(filter(FilterChar, nibbles))
+    nibbles = list(filter(filter_chars, nibbles))
     # print(nibbles)              # debug
 
     word1 = nibbles[8:]
@@ -28,9 +28,9 @@ def GetWord ():
     print('words: word1, word2 = 0x', *word1, sep='', end=', ')
     print('0x', *word2, sep='')
 
-def FilterChar (letter):
+def filter_chars(letter):
     undesirable_chars = [' ', '\t']
     return False if letter in undesirable_chars else True 
 
 
-GetWord()
+get_words()
