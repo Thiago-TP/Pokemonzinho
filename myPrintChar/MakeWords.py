@@ -1,9 +1,9 @@
+import sys
 # goofy ahh code to create the char sprites (words) from a source txt file
 # source_file.txt generates CharTable.data
 # 14/01/2023
 
 # main function
-import sys
 
 def make_char_table(source_file_name):
     with open(source_file_name) as src:
