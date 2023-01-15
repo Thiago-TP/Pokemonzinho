@@ -154,14 +154,15 @@ GetBMPaddress:
 PrintWordContents:	
 	# inicializa contadores
 	li	t4, 6		# da coluna/largura
-	li	t5, 5		# da linha/altura (10/5)
+	li	t5, 5		# da linha/altura (5=10/2)
 	li	t6, 0		# de bits
 lineLoop:
 	# s0 <- bit da word em a0
-	li	s0, 0x00000001	# inicializado como 1
-	sll	s0, s0, t6	# ajuste para o and
-	and	s0, s0, a0 	# s0 <- 0b 00...0 ou 1...0
-	srl	s0, s0, t6	# s0 <- 0 ou 1
+	li	s0, 0x80000000	# inicializado como 0b_1000...0
+	srl	s0, s0, t6	# ajuste para o and
+	and	s0, s0, a0 	# s0 <- 0b_00...0 ou 1...0
+	sll	s0, s0, t6	# s0 <- 0b_00...0 ou 0b_10...0
+	srli    s0, s0, 32  # s0 <- 0b_00...0 ou 1
 	
 	addi	t6, t6, 1	# bit_cont++
 	bnez	s0, printFront	# bit = 1 => cor da frente
