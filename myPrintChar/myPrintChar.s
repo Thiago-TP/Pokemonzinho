@@ -2,7 +2,7 @@
 .include "CharTable.data"
 # para futuras expansões: https://theasciicode.com.ar
 
-str_lower:	.string	"abcdefghijklmnopqrstuvwxyz"
+str_lower:	.string	"So, you're here. I'm BROCK."
 str_upper:	.string	"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 str_numbers:	.string	"0123456789"
 str_symbols:	.string	"!?=+- $%&*()[]{}/|~<>,.;:^'`_@"
@@ -18,15 +18,15 @@ str_symbols:	.string	"!?=+- $%&*()[]{}/|~<>,.;:^'`_@"
 	jal	PrintString	# resultado
 	
 	la	a0, str_lower
-	addi	a2, a2, 10
+	addi	a2, a2, 11
 	jal	PrintString	# resultado
 	
 	la	a0, str_upper
-	addi	a2, a2, 10
+	addi	a2, a2, 11
 	jal	PrintString	# resultado
 	
 	la	a0, str_numbers
-	addi	a2, a2, 10
+	addi	a2, a2, 11
 	jal	PrintString	# resultado
 .end_macro
 
@@ -110,8 +110,8 @@ myPrintChar:
 	sw	s1, 16(sp)		# guarda s1 (será modificado)
 	
 	la	t0, CharTable
-	addi	t1, a0, -32
-	slli	t1, t1, 3		# t1 = offset em relação à tabela 
+	#addi	t1, a0, -32
+	slli	t1, a0, 3		# t1 = offset em relação à tabela
 	add	t0, t0, t1		# t0 <- endereco da 1a word do char
 	
 	jal	GetBMPaddress		# t1 = endereco de bitmap dado por a1, a2, e a3
@@ -162,7 +162,7 @@ lineLoop:
 	srl	s0, s0, t6	# ajuste para o and
 	and	s0, s0, a0 	# s0 <- 0b_00...0 ou 1...0
 	sll	s0, s0, t6	# s0 <- 0b_00...0 ou 0b_10...0
-	srli    s0, s0, 32  # s0 <- 0b_00...0 ou 1
+	srli    s0, s0, 31  # s0 <- 0b_00...0 ou 1
 	
 	addi	t6, t6, 1	# bit_cont++
 	bnez	s0, printFront	# bit = 1 => cor da frente
