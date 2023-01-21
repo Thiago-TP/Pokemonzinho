@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f69a718-48a7-453b-b6f7-13ef02f1092f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/myPrintChar/img2data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprites/people/hero_e1.data" beforeDir="false" />
+    <list default="true" id="4f69a718-48a7-453b-b6f7-13ef02f1092f" name="Changes" comment="bruh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +29,13 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/thiag/Documents/OAC_Lamar/2022-2/Pokemonzinho/myPrintChar"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/thiag/Documents/OAC_Lamar/2022-2/Pokemonzinho/myPrintChar&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\thiag\Documents\OAC_Lamar\2022-2\Pokemonzinho\myPrintChar" />
@@ -47,6 +46,9 @@
       <module name="git_pkmn" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myPrintChar" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -76,6 +78,14 @@
       <option name="presentableId" value="Default" />
       <updated>1674009076283</updated>
     </task>
+    <task id="LOCAL-00001" summary="bruh">
+      <created>1674012214610</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674012214610</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,10 +93,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="BEK_SORT_TYPE" value="1" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bruh" />
+    <option name="LAST_COMMIT_MESSAGE" value="bruh" />
   </component>
 </project>
