@@ -2,7 +2,7 @@ SetupGame:
 	addi	sp, sp, -4
 	sw	ra, 0(sp)
 		
-GameLoop:		
+GameLoop:																									
 	la	t0, fim_da_fase
 	lbu	t0, 0(t0)
 	bnez	t0, fimGameLoop		# acabou a fase ?
