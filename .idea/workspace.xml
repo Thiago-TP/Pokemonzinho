@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f69a718-48a7-453b-b6f7-13ef02f1092f" name="Changes" comment="bruh" />
+    <list default="true" id="4f69a718-48a7-453b-b6f7-13ef02f1092f" name="Changes" comment="new directory for work on map scrolling">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rodrigo/PokemonGamev2.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Rodrigo/PokemonGamev2.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcoes/AtualizaEstadoHero.s" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes/AtualizaEstadoHero.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcoes/PrintTilemap.s" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes/PrintTilemap.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcoes/SetupGame.s" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes/SetupGame.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprites/people/hero_e1.data" beforeDir="false" afterPath="$PROJECT_DIR$/sprites/people/hero_e1.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.s" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.s" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +39,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/thiago/Aulas/OAC/2022-2/Pokemonzinho&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/thiag/Documents/OAC_Lamar/2022-2/Trabalho/Pokemonzinho&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -83,8 +92,18 @@
       <option name="project" value="LOCAL" />
       <updated>1674012214610</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new directory for work on map scrolling">
+      <created>1674314065296</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674314065296</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.asm" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -101,6 +120,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bruh" />
-    <option name="LAST_COMMIT_MESSAGE" value="bruh" />
+    <MESSAGE value="new directory for work on map scrolling" />
+    <option name="LAST_COMMIT_MESSAGE" value="new directory for work on map scrolling" />
   </component>
 </project>

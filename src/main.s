@@ -3,6 +3,7 @@
 # globais estaticas/imutaveis
 .eqv	frameAddress	0xFF200604
 .eqv	idleTime	150		# ms, tempo que uma  sprite do trn deve permanecer
+.eqv	run_idleTime	50		# ms, tempo que uma  sprite do trn deve permanecer
 .eqv	jumpIdleTime	30
 .eqv	readTime	1500		# ms, tempo dado ao jogador para ler a linha de dialogo
 .eqv	normal_step	2
@@ -30,7 +31,7 @@ player:	.half 152, 220,	# x, y atuais
 	.byte 0		# ID do pokemon capturado
 oak_struct:	.half 152, 220,	# x, y atuais
 	      	      152, 220,	# x, y novos		
-
+	      	      
 .text
 # Regs do GameLoop
 # s0 = estado do player (0 = parado, 1 = andando1, 2 = andando2)
@@ -247,34 +248,81 @@ bkgLine:
 # stats dos pokemons de acordo com o pokedex (https://pokemondb.net/pokedex/stats/gen1)
 bulbasaur_struct:
 .byte	1,	# ID
-	45,	# HP								
 	71,	# 1o tipo, GRASS	('G')
-	80,	# 2o tipo, POISON	('P')	
+	80,	# 2o tipo, POISON	('P')
+	45,	# HP								
+	49,	# attack
+	49,	# defense
+	65,	# sp attack
+	65,	# sp def
+	45,	# speed
+	0,	# XP
+	5,	# level	
+	
 charmender_struct:
 .byte	4,	# ID
-	39,	# HP								
 	70,	# 1o tipo, FIRE		('F')
-	32,	# 2o tipo, NONE		(' ')	
+	0,	# 2o tipo, NONE		('')
+	39,	# HP								
+	52,	# attack
+	43,	# defense
+	60,	# sp attack
+	50,	# sp def
+	65,	# speed	
+	0,	# XP
+	5,	# level
+		
 squirtle_struct:
-.byte	7,	# ID
-	44,	# HP								
+.byte	7,	# ID							
 	87,	# 1o tipo, WATER	('W')
-	32,	# 2o tipo, NONE		(' ')
+	0,	# 2o tipo, NONE		('')
+	44,	# HP
+	48,	# attack
+	65,	# defense
+	50,	# sp attack
+	64,	# sp def
+	43,	# speed	
+	0,	# XP
+	5,	# level	
+	
 geodude_struct:
 .byte	74,	# ID
-	40,	# HP								
 	82,	# 1o tipo, ROCK		('R')
 	103,	# 2o tipo, GROUND	('g')
+	40,	# HP
+	80,	# attack
+	100,	# defense
+	30,	# sp attack
+	30,	# sp def
+	20,	# speed	
+	0,	# XP
+	5,	# level	
+								
 onix_struct:
 .byte	95,	# ID
-	35,	# HP								
 	82,	# 1o tipo, ROCK		('R')
-	103,	# 2o tipo, GROUND	('g')							
+	103,	# 2o tipo, GROUND	('g')
+	35,	# HP
+	45,	# attack
+	160,	# defense
+	30,	# sp attack
+	45,	# sp def
+	70,	# speed	
+	0,	# XP
+	5,	# level	
+															
 eevee_struct:
 .byte	133,	# ID
-	55,	# HP								
 	78,	# 1o tipo, NORMAL	('N')
-	32,	# 2o tipo, NONE		(' ')									
+	0,	# 2o tipo, NONE		('')
+	55,	# HP
+	55,	# attack
+	50,	# defense
+	45,	# sp attack
+	65,	# sp def
+	55,	# speed	
+	0,	# XP
+	5,	# level																	
 												
 	
 			
