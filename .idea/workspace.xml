@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4f69a718-48a7-453b-b6f7-13ef02f1092f" name="Changes" comment="new directory for work on map scrolling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rodrigo/PokemonGamev2.asm" beforeDir="false" afterPath="$PROJECT_DIR$/Rodrigo/PokemonGamev2.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcoes/AtualizaEstadoHero.s" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes/AtualizaEstadoHero.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funcoes/PrintTilemap.s" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes/PrintTilemap.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcoes/SetupGame.s" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes/SetupGame.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprites/people/hero_e1.data" beforeDir="false" afterPath="$PROJECT_DIR$/sprites/people/hero_e1.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.s" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.s" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
