@@ -1,4 +1,4 @@
-PrintInversoHV:
+PRINT_INVERSEHV:
 	addi	sp, sp, -8
 	sw	ra, 0(sp)
 	sw	a1, 4(sp)

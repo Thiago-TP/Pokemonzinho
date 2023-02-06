@@ -77,49 +77,49 @@ ApresentaInicial:
 	sw	a0, 4(sp)
 	sw	a1, 8(sp)
 	
-	li	s10, frameAddress
+	li	s10, FRAME_ADDRESS
 	lw	a3, 0(s10)
 	xori	a3, a3, 1
 	la	a0, tilemap_menu_starter
 	li	a1, 80
 	li	a2, 148
-	call	PrintTilemap		# usa s11
+	call	PRINT_TILEMAP		# usa s11
 	
 	lw	a0, 4(sp)
 	li	a1, 180
 	li	a2, 152
-	call	Print
+	call	PRINT
 	sw	a3, 0(s10)
 	
 	la	a0, CHOOSE
 	li	a1, 88
 	li	a2, 156
 	mv	a4, a3
-	li	a3, 0x0000ff00
-	call	PrintString
+	li	a3, 0x00f6c700
+	call	PRINT_STRING
 	
 	lw	a0, 8(sp)
 	addi	a1, a1, 56
-	call	PrintString
+	call	PRINT_STRING
 
 	addi	a1, a1, 80
-	li	a0, '?'
-	call	PrintChar
+	li	    a0, '?'
+	call	PRINT_CHAR
 	
 	la	a0, YES
 	li	a1, 128
 	addi	a2, a2, 8
-	call	PrintString
+	call	PRINT_STRING
 	
 	li	a0, '>'
 	addi	a1, a1, -8
 	li	a3, 0x0000ff07
-	call	PrintChar
+	call	PRINT_CHAR
 	
 	la	a0, NO
 	li	a1, 168
 	li	a3, 0x0000ff00
-	call	PrintString
+	call	PRINT_STRING
 
 	lw	ra, 0(sp)
 	lw	a0, 4(sp)
@@ -149,7 +149,7 @@ StarterLoop:
 	
 	j	StarterLoop
 fimSetupStarter:
-	li	t0, frameAddress
+	li	t0, FRAME_ADDRESS
 	lw	a3, 0(t0)
 	xori	a3, a3, 1
 	sw	a3, 0(t0)
@@ -176,12 +176,12 @@ gotoNO:
 	li	a1, 160
 	li	a2, 164
 	li	a3, 0x0000ff07
-	li	a4, frameAddress
+	li	a4, FRAME_ADDRESS
 	lw	a4, 0(a4)
-	call	PrintChar
+	call	PRINT_CHAR
 	li	a1, 120
 	li	a3, 0x0000ffff
-	call	PrintChar
+	call	PRINT_CHAR
 	
 	li	s10, 0
 	j	StarterLoop
@@ -190,12 +190,12 @@ gotoYES:
 	li	a1, 120
 	li	a2, 164
 	li	a3, 0x0000ff07
-	li	a4, frameAddress
+	li	a4, FRAME_ADDRESS
 	lw	a4, 0(a4)
-	call	PrintChar
+	call	PRINT_CHAR
 	li	a1, 160
 	li	a3, 0x0000ffff
-	call	PrintChar
+	call	PRINT_CHAR
 	
 	li	s10, 1
 	j	StarterLoop

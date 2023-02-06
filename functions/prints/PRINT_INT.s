@@ -1,12 +1,12 @@
 #############################################
-#  PrintInt                                 #
+#  PRINTInt                                 #
 #  a0    =    valor inteiro                 #
 #  a1    =    x                             #
 #  a2    =    y  			    #
 #  a3    =    cor                           #
 #############################################
 
-PrintInt:	addi 	sp, sp, -24			# Aloca espaco
+PRINTInt:	addi 	sp, sp, -24			# Aloca espaco
 		sw 	ra, 0(sp)			# salva regs
 		sw 	a0, 4(sp)			
 		sw 	a1, 8(sp)			
@@ -44,7 +44,7 @@ loop2printInt:	lw 	t2, 0(sp)			# le digito da pilha
 		sb 	zero, 0(t0)			# insere \NULL na string
 		
 		la 	a0, TempBuffer			# Endereco do buffer da srting
-		jal 	PrintString			# chama o print string
+		jal 	PRINT_STRING			# chama o print string
 				
 		lw 	ra, 0(sp)			# recupera regs
 		lw 	a0, 4(sp)			

@@ -1,4 +1,4 @@
-Cutscene:
+CUTSCENE:
 	addi	sp, sp, -4
 	sw	ra, 0(sp)
 	
@@ -88,7 +88,7 @@ loopOakAnda3:
 	blt	a1, t0, loopOakAnda3
 	
 	li	a1, 148 
-	li	t0, frameAddress
+	li	t0, FRAME_ADDRESS
 	lw	a3, 0(t0)
 	xori	a3, a3, 1
 	sw	a3, 0(t0)		# mostra o outro frame
@@ -99,11 +99,11 @@ loopOakAnda3:
 	
 	li	a1, 152
 	la	a0, oak_s1		# imprime a certa no oculto
-	call	Print
-	li	t0, frameAddress
+	call	PRINT
+	li	t0, FRAME_ADDRESS
 	sw	a3, 0(t0)		# mostra a pose certa
 	xori	a3, a3, 1
-	call	Print			# repete a pose no outro frame
+	call	PRINT			# repete a pose no outro frame
 	
 	li	s0, 0
 	

@@ -1,11 +1,11 @@
-SetupGame:
+SETUP_GAME:
 	addi	sp, sp, -4
 	sw	ra, 0(sp)
 		
-GameLoop:																									
+GAME_LOOP:																									
 	la	t0, fim_da_fase
 	lbu	t0, 0(t0)
-	bnez	t0, fimGameLoop		# acabou a fase ?
+	bnez	t0, fimGAME_LOOP		# acabou a fase ?
 	
 	call	Musica
 	call	WildEncounter
@@ -13,7 +13,7 @@ GameLoop:
 	li	t0, 0xFF200000	
 	lw	t1, 0(t0)
 	andi	t1, t1, 1
-	beqz	t1, voltaGameLoop
+	beqz	t1, voltaGAME_LOOP
 	
 	la	a0, player
 	lhu	a1, 0(a0)		# x atual
@@ -40,10 +40,10 @@ TrataInput:
 	li	t1, 's'
 	beq	t0, t1, MoveBaixo
 	
-voltaGameLoop:
+voltaGAME_LOOP:
 	call	AnimaHero		# haverao anims dos inimigos tbm
-	j	GameLoop
-fimGameLoop:			
+	j	GAME_LOOP
+fimGAME_LOOP:			
 	lw	ra, 0(sp)
 	addi	sp, sp, 4
 	ret
@@ -53,62 +53,62 @@ MoveEsq:
 	call	VerificaColisao
 	la	t0, bateu
 	lbu	t0, 0(t0)
-	bgtz	t0, voltaGameLoop
+	bgtz	t0, voltaGAME_LOOP
 	
-	bltz	a1, voltaGameLoop
+	bltz	a1, voltaGAME_LOOP
 	sh	a1, 4(a0)
 	call	AtualizaEstadoHero
-	j	voltaGameLoop	
+	j	voltaGAME_LOOP	
 MoveDir:
 	add	a1, a1, t2
 	call	VerificaColisao
 	la	t0, bateu
 	lbu	t0, 0(t0)
-	bgtz	t0, voltaGameLoop
+	bgtz	t0, voltaGAME_LOOP
 	
 	li	t0, 308
-	bgeu	a1, t0, voltaGameLoop
+	bgeu	a1, t0, voltaGAME_LOOP
 	sh	a1, 4(a0)
 	call	AtualizaEstadoHero
-	j	voltaGameLoop
+	j	voltaGAME_LOOP
 MoveBaixo:
 	add	a2, a2, t2
 	call	VerificaColisao
 	la	t0, bateu
 	lbu	t0, 0(t0)
-	bgtz	t0, voltaGameLoop
+	bgtz	t0, voltaGAME_LOOP
 	
 	li	t0, 220
-	bgeu	a2, t0, voltaGameLoop
+	bgeu	a2, t0, voltaGAME_LOOP
 	sh	a2, 6(a0)
 	call	AtualizaEstadoHero
-	j	voltaGameLoop
+	j	voltaGAME_LOOP
 MoveCima:
 	sub	a2, a2, t2
 	call	VerificaColisao
 	la	t0, bateu
 	lbu	t0, 0(t0)
-	bgtz	t0, voltaGameLoop
+	bgtz	t0, voltaGAME_LOOP
 	
 	li	t0, 240
-	bgeu	a2, t0, voltaGameLoop
+	bgeu	a2, t0, voltaGAME_LOOP
 	sh	a2, 6(a0)
 	call	AtualizaEstadoHero	
-	j	voltaGameLoop
+	j	voltaGAME_LOOP
 	
 DecideAcao:
 	call	EscolheInicial	# particular da fase 1
 	la	t0, menu_pkmn
 	lbu	t0, 0(t0)
-	bgtz	t0, GameLoop
+	bgtz	t0, GAME_LOOP
 	
 	call	ChecaSaida
 	la	t0, fim_da_fase
 	lbu	t0, 0(t0)
-	bnez	t0, fimGameLoop
+	bnez	t0, fimGAME_LOOP
 	
 	call	SetupMenu	# interacao com o user	
-	j	GameLoop
+	j	GAME_LOOP
 
 ChecaSaida:
 	la	t0, player

@@ -4,7 +4,7 @@ placa1:	.string	"Gym ahead."
 placa2:	.string	"Watch out for wild Eevees."
 
 .text
-Dialogo:
+DIALOGUE:
 	addi	sp, sp, -4
 	sw	ra, 0(sp)
 	
@@ -27,22 +27,22 @@ dialogo0:
 	lhu	a2, 2(t0)
 	call	GuardaFundo
 	
-	li	a5, frameAddress
+	li	a5, FRAME_ADDRESS
 	lw	a3, 0(a5)
 	
 	xori	a3, a3, 1
 	la	a0, neutro
 	lw	a0, 0(a0)
-	call	Print
+	call	PRINT
 	
 	la	a0, tutorial
 	li	a1, 24
 	li	a2, 28
 	mv	a4, a3
-	li	a3, 0x0000c700
+	li	a3, 0x00f6c700
 	
 	sw	a4, 0(a5)
-	call	PrintString
+	call	PRINT_STRING
 
 	li	a0, readTime
 	call	Sleep_with_music
@@ -69,13 +69,13 @@ dialogo1:
 	lhu	a2, 2(t0)
 	call	GuardaFundo
 	
-	li	a5, frameAddress
+	li	a5, FRAME_ADDRESS
 	lw	a3, 0(a5)
 	
 	xori	a3, a3, 1
 	la	a0, neutro
 	lw	a0, 0(a0)
-	call	Print
+	call	PRINT
 	
 	la	a0, placa1
 	li	a1, 80
@@ -83,10 +83,10 @@ dialogo1:
 	mv	a4, a3
 	sw	a4, 0(a5)
 	li	a3, 0x0000ff07
-	call	PrintString
+	call	PRINT_STRING
 	la	a0, placa2
 	addi	a2, a2, 8
-	call	PrintString
+	call	PRINT_STRING
 
 	li	a0, readTime
 	call	Sleep_with_music

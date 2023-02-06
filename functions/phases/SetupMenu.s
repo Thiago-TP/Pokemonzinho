@@ -14,7 +14,7 @@ SetupMenu:
 	addi	a1, a1, 8
 	li	a2, menuY
 	addi	a2, a2, 8
-	li	a3, frameAddress
+	li	a3, FRAME_ADDRESS
 	lw	a4, 0(a3)
 MenuLoop:		
 	li	t0, 0xFF200000	
@@ -34,7 +34,7 @@ MenuLoop:
 fimSetupMenu:
 	li	a1, menuX
 	li	a2, menuY	
-	li	t0, frameAddress
+	li	t0, FRAME_ADDRESS
 	lw	a3, 0(t0)
 	li	a4, 144
 	li	a5, 48
@@ -46,20 +46,20 @@ fimSetupMenu:
 
 hoverItem:
 	li	a3, 0x0000ff07
-	call	PrintChar
+	call	PRINT_CHAR
 	addi	a2, a2, 8
 	li	a3, 0x0000ffff
-	call	PrintChar
+	call	PRINT_CHAR
 	addi	a2, a2, -8
 	li	a5, 0	
 	j	MenuLoop
 hoverItemOuSai:
 	addi	a2, a2, 8
 	li	a3, 0x0000ff07
-	call	PrintChar
+	call	PRINT_CHAR
 	addi	a2, a2, -8
 	li	a3, 0x0000ffff
-	call	PrintChar
+	call	PRINT_CHAR
 	li	a5, 1	
 	j	MenuLoop
 
@@ -97,16 +97,16 @@ ImprimeMenu:
 	la	a0, tilemap_menu
 	li	a1, menuX
 	li	a2, menuY
-	li	a3, frameAddress
+	li	a3, FRAME_ADDRESS
 	lw	a3, 0(a3)
-	call	PrintTilemap
+	call	PRINT_TILEMAP
 	
 	la	a0, SHOES
 	addi	a1, a1, 16
 	addi	a2, a2, 8
 	mv	a4, a3
 	li	a3, 0x0000ff00
-	call	PrintString
+	call	PRINT_STRING
 	
 	la	a0, item
 	lbu	a0, (a0)
@@ -119,13 +119,13 @@ shoesOff:
 	li	a3, 0x0000ff05	
 printShoesState:
 	addi	a1, a1, 72
-	call	PrintString
+	call	PRINT_STRING
 	
 	la	a0, REPELENT
 	addi	a1, a1, -72
 	addi	a2, a2, 8
 	li	a3, 0x0000ff00
-	call	PrintString
+	call	PRINT_STRING
 	
 	la	a0, repelent
 	lbu	a0, (a0)
@@ -138,20 +138,20 @@ repelentOff:
 	li	a3, 0x0000ff05	
 printRepelentState:
 	addi	a1, a1, 72
-	call	PrintString
+	call	PRINT_STRING
 	
 	la	a0, CONTINUE
 	addi	a1, a1, -72
 	addi	a2, a2, 8
 	li	a3, 0x0000ff00
-	call	PrintString
+	call	PRINT_STRING
 	
 	li	a0, '>'
 	li	a1, menuX
 	addi	a1, a1, 8
 	addi	a2, a2, -8
 	li	a3, 0x0000ff07
-	call	PrintChar
+	call	PRINT_CHAR
 	
 	li	a5, 0			# flag de exit
 	

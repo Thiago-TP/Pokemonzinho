@@ -10,7 +10,7 @@ AnimaOak:
 	la	t0, oak_struct
 	lhu	a1, 4(t0)	# x novo
 	lhu	a2, 6(t0)	# y novo
-	li	a3, frameAddress
+	li	a3, FRAME_ADDRESS
 	lw	a3, 0(a3)
 	xori	a3, a3, 1	# frame oculto
 	call	AtualizaPoseOak
@@ -18,13 +18,13 @@ AnimaOak:
 	la	t0, inversoH
 	lbu	t0, 0(t0)
 	li	t1, 1
-	beq	t1, t0, imprimeInversoOak
-	call	Print
+	beq	t1, t0, imprime_INVERSEOak
+	call	PRINT
 	j	fimAnimaOak
-imprimeInversoOak:
-	call	PrintInversoH
+imprime_INVERSEOak:
+	call	PRINT_INVERSEH
 fimAnimaOak:	
-	li	t0, frameAddress
+	li	t0, FRAME_ADDRESS
 	sw	a3, 0(t0)
 	
 	la	a0, oak_struct	

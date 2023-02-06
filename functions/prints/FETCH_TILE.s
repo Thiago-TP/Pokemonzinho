@@ -1,4 +1,13 @@
-DecideTile:
+#####################################################
+#	Carrega em a0 a label da tile codificada em a0	#
+#####################################################
+#	- Input -			#
+#	a0 = número da tile	#
+#########################
+#	- Output -			#
+#	a0 = label da tile	#
+#########################
+FETCH_TILE:
 	li	t1, 0
 	beq	a0, t1, tile0
 	li	t1, 1

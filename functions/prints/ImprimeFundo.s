@@ -3,7 +3,7 @@
 #########################################################################
 ImprimeFundo:
 	li 	t0, 0xFF0 	# carrega 0xFF0 em t0
-       	li	t1, frameAddress
+       	li	t1, FRAME_ADDRESS
        	lw	t1, 0(t1)
        	xori	t1, t1, 1	# t1 <- valor do outro frame
         add 	t0, t0, t1 	# adiciona o frame a FF0 
@@ -22,19 +22,19 @@ ImprimeFundo:
         mul	t6, t3, t4	# t6 <- quantidade de pixels
         add	t6, sp, t6  	# t6  <- endereco do primeiro byte do fundo
       
-ImprimeLinha:
+RETURN_LINE:
 	addi  	t6, t6,-1   # vai para o proximo pixel do fundo
         lbu   	t5, 0(t6)   # carrega em t5 um byte da pilha
         sb    	t5, 0(t0)   # imprime no bitmap um byte da imagem
         addi  	t0, t0, 1   # incrementa endereco do bitmap
         addi  	t2, t2, 1   # incrementa contador de coluna
-        blt   	t2, t3, ImprimeLinha # cont da coluna < largura ?      
+        blt   	t2, t3, RETURN_LINE # cont da coluna < largura ?      
       
         addi  	t0, t0, 320 	# t0 += 320
         sub   	t0, t0, t3  	# t0 -= largura da imagem
         mv    	t2, zero    	# zera t2 (cont de coluna)
         addi  	t1, t1, 1   	# incrementa contador de linha
-        bgt   	t4, t1, ImprimeLinha # altura > contador de linha ?
+        bgt   	t4, t1, RETURN_LINE # altura > contador de linha ?
         
         # ajusta a pilha
         mul	t6, t3, t4	# t6 <- quantidade de pixels

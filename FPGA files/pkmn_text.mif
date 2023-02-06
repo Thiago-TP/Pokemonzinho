@@ -35,11 +35,11 @@ BEGIN
 0000001c : ef428293;   % 18:  %
 0000001d : 0002c283;   % 19: 	lbu	t0, 0(t0) %
 0000001e : 00100313;   % 20: 	li	t1, 1 %
-0000001f : 00530863;   % 21: 	beq	t1, t0, imprimeInverso %
-00000020 : 00001317;   % 22: 	call	Print %
+0000001f : 00530863;   % 21: 	beq	t1, t0, imprime_INVERSE %
+00000020 : 00001317;   % 22: 	call	PRINT %
 00000021 : 600300e7;   % 22:  %
 00000022 : 00c0006f;   % 23: 	j	fimAnimaHero %
-00000023 : 00002317;   % 25: 	call	PrintInversoH %
+00000023 : 00002317;   % 25: 	call	PRINT_INVERSEH %
 00000024 : 84c300e7;   % 25:  %
 00000025 : ff2002b7;   % 27: 	li	t0, 0xFF200604 %
 00000026 : 60428293;   % 27:  %
@@ -100,7 +100,7 @@ BEGIN
 0000005d : 00000613;   % 66: 	li	a2, 0			# y %
 0000005e : ff2002b7;   % 67: 	li	t0, 0xFF200604 %
 0000005f : 60428293;   % 67:  %
-00000060 : 00002317;   % 68: 	call	PrintTilemap	 %
+00000060 : 00002317;   % 68: 	call	PRINTTilemap	 %
 00000061 : a74300e7;   % 68:  %
 00000062 : 00012083;   % 70: 	lw	ra, 0(sp) %
 00000063 : 00410113;   % 71: 	addi	sp, sp, 4 %
@@ -263,11 +263,11 @@ BEGIN
 00000100 : b6428293;   % 18:  %
 00000101 : 0002c283;   % 19: 	lbu	t0, 0(t0) %
 00000102 : 00100313;   % 20: 	li	t1, 1 %
-00000103 : 00530863;   % 21: 	beq	t1, t0, imprimeInversoOak %
-00000104 : 00001317;   % 22: 	call	Print %
+00000103 : 00530863;   % 21: 	beq	t1, t0, imprime_INVERSEOak %
+00000104 : 00001317;   % 22: 	call	PRINT %
 00000105 : 270300e7;   % 22:  %
 00000106 : 00c0006f;   % 23: 	j	fimAnimaOak %
-00000107 : 00001317;   % 25: 	call	PrintInversoH %
+00000107 : 00001317;   % 25: 	call	PRINT_INVERSEH %
 00000108 : 4bc300e7;   % 25:  %
 00000109 : ff2002b7;   % 27: 	li	t0, 0xFF200604 %
 0000010a : 60428293;   % 27:  %
@@ -486,13 +486,13 @@ BEGIN
 000001df : 09800593;   % 100: 	li	a1, 152 %
 000001e0 : 0fc10517;   % 101: 	la	a0, oak_s1		# imprime a certa no oculto %
 000001e1 : f5050513;   % 101:  %
-000001e2 : 00001317;   % 102: 	call	Print %
+000001e2 : 00001317;   % 102: 	call	PRINT %
 000001e3 : ef8300e7;   % 102:  %
 000001e4 : ff2002b7;   % 103: 	li	t0, 0xFF200604 %
 000001e5 : 60428293;   % 103:  %
 000001e6 : 00d2a023;   % 104: 	sw	a3, 0(t0)		# mostra a pose certa %
 000001e7 : 0016c693;   % 105: 	xori	a3, a3, 1 %
-000001e8 : 00001317;   % 106: 	call	Print			# repete a pose no outro frame %
+000001e8 : 00001317;   % 106: 	call	PRINT			# repete a pose no outro frame %
 000001e9 : ee0300e7;   % 106:  %
 000001ea : 00000413;   % 108: 	li	s0, 0 %
 000001eb : 00012083;   % 110: 	lw	ra, 0(sp) %
@@ -920,7 +920,7 @@ BEGIN
 00000391 : 0fc19517;   % 34: 	la	a0, neutro %
 00000392 : 12850513;   % 34:  %
 00000393 : 00052503;   % 35: 	lw	a0, 0(a0) %
-00000394 : 00001317;   % 36: 	call	Print %
+00000394 : 00001317;   % 36: 	call	PRINT %
 00000395 : 830300e7;   % 36:  %
 00000396 : 0fc19517;   % 38: 	la	a0, tutorial %
 00000397 : 77350513;   % 38:  %
@@ -930,7 +930,7 @@ BEGIN
 0000039b : 0000c6b7;   % 42: 	li	a3, 0x0000c700 %
 0000039c : 70068693;   % 42:  %
 0000039d : 00e7a023;   % 44: 	sw	a4, 0(a5) %
-0000039e : 00001317;   % 45: 	call	PrintString %
+0000039e : 00001317;   % 45: 	call	PRINT_STRING %
 0000039f : d1c300e7;   % 45:  %
 000003a0 : 5dc00513;   % 47: 	li	a0, 1500 %
 000003a1 : 00001317;   % 48: 	call	Sleep_with_music %
@@ -964,7 +964,7 @@ BEGIN
 000003bd : 0fc19517;   % 76: 	la	a0, neutro %
 000003be : 07850513;   % 76:  %
 000003bf : 00052503;   % 77: 	lw	a0, 0(a0) %
-000003c0 : 00000317;   % 78: 	call	Print %
+000003c0 : 00000317;   % 78: 	call	PRINT %
 000003c1 : 780300e7;   % 78:  %
 000003c2 : 0fc19517;   % 80: 	la	a0, placa1 %
 000003c3 : 76150513;   % 80:  %
@@ -974,12 +974,12 @@ BEGIN
 000003c7 : 00e7a023;   % 84: 	sw	a4, 0(a5) %
 000003c8 : 000106b7;   % 85: 	li	a3, 0x0000ff07 %
 000003c9 : f0768693;   % 85:  %
-000003ca : 00001317;   % 86: 	call	PrintString %
+000003ca : 00001317;   % 86: 	call	PRINT_STRING %
 000003cb : c6c300e7;   % 86:  %
 000003cc : 0fc19517;   % 87: 	la	a0, placa2 %
 000003cd : 74450513;   % 87:  %
 000003ce : 00860613;   % 88: 	addi	a2, a2, 8 %
-000003cf : 00001317;   % 89: 	call	PrintString %
+000003cf : 00001317;   % 89: 	call	PRINT_STRING %
 000003d0 : c58300e7;   % 89:  %
 000003d1 : 5dc00513;   % 91: 	li	a0, 1500 %
 000003d2 : 00001317;   % 92: 	call	Sleep_with_music %
@@ -1074,12 +1074,12 @@ BEGIN
 0000042b : 5e750513;   % 83:  %
 0000042c : 05000593;   % 84: 	li	a1, 80 %
 0000042d : 09400613;   % 85: 	li	a2, 148 %
-0000042e : 00001317;   % 86: 	call	PrintTilemap		# usa s11 %
+0000042e : 00001317;   % 86: 	call	PRINTTilemap		# usa s11 %
 0000042f : b3c300e7;   % 86:  %
 00000430 : 00412503;   % 88: 	lw	a0, 4(sp) %
 00000431 : 0b400593;   % 89: 	li	a1, 180 %
 00000432 : 09800613;   % 90: 	li	a2, 152 %
-00000433 : 00000317;   % 91: 	call	Print %
+00000433 : 00000317;   % 91: 	call	PRINT %
 00000434 : 5b4300e7;   % 91:  %
 00000435 : 00dd2023;   % 92: 	sw	a3, 0(s10) %
 00000436 : 0fc19517;   % 94: 	la	a0, CHOOSE %
@@ -1089,34 +1089,34 @@ BEGIN
 0000043a : 00d00733;   % 97: 	mv	a4, a3 %
 0000043b : 000106b7;   % 98: 	li	a3, 0x0000ff00 %
 0000043c : f0068693;   % 98:  %
-0000043d : 00001317;   % 99: 	call	PrintString %
+0000043d : 00001317;   % 99: 	call	PRINT_STRING %
 0000043e : aa0300e7;   % 99:  %
 0000043f : 00812503;   % 101: 	lw	a0, 8(sp) %
 00000440 : 03858593;   % 102: 	addi	a1, a1, 56 %
-00000441 : 00001317;   % 103: 	call	PrintString %
+00000441 : 00001317;   % 103: 	call	PRINT_STRING %
 00000442 : a90300e7;   % 103:  %
 00000443 : 05058593;   % 105: 	addi	a1, a1, 80 %
 00000444 : 03f00513;   % 106: 	li	a0, '?' %
-00000445 : 00000317;   % 107: 	call	PrintChar %
+00000445 : 00000317;   % 107: 	call	PRINT_CHAR %
 00000446 : 5dc300e7;   % 107:  %
 00000447 : 0fc19517;   % 109: 	la	a0, YES %
 00000448 : 5eb50513;   % 109:  %
 00000449 : 08000593;   % 110: 	li	a1, 128 %
 0000044a : 00860613;   % 111: 	addi	a2, a2, 8 %
-0000044b : 00001317;   % 112: 	call	PrintString %
+0000044b : 00001317;   % 112: 	call	PRINT_STRING %
 0000044c : a68300e7;   % 112:  %
 0000044d : 03e00513;   % 114: 	li	a0, '>' %
 0000044e : ff858593;   % 115: 	addi	a1, a1, -8 %
 0000044f : 000106b7;   % 116: 	li	a3, 0x0000ff07 %
 00000450 : f0768693;   % 116:  %
-00000451 : 00000317;   % 117: 	call	PrintChar %
+00000451 : 00000317;   % 117: 	call	PRINT_CHAR %
 00000452 : 5ac300e7;   % 117:  %
 00000453 : 0fc19517;   % 119: 	la	a0, NO %
 00000454 : 5bf50513;   % 119:  %
 00000455 : 0a800593;   % 120: 	li	a1, 168 %
 00000456 : 000106b7;   % 121: 	li	a3, 0x0000ff00 %
 00000457 : f0068693;   % 121:  %
-00000458 : 00001317;   % 122: 	call	PrintString %
+00000458 : 00001317;   % 122: 	call	PRINT_STRING %
 00000459 : a34300e7;   % 122:  %
 0000045a : 00012083;   % 124: 	lw	ra, 0(sp) %
 0000045b : 00412503;   % 125: 	lw	a0, 4(sp) %
@@ -1167,12 +1167,12 @@ BEGIN
 00000488 : ff200737;   % 179: 	li	a4, 0xFF200604 %
 00000489 : 60470713;   % 179:  %
 0000048a : 00072703;   % 180: 	lw	a4, 0(a4) %
-0000048b : 00000317;   % 181: 	call	PrintChar %
+0000048b : 00000317;   % 181: 	call	PRINT_CHAR %
 0000048c : 4c4300e7;   % 181:  %
 0000048d : 07800593;   % 182: 	li	a1, 120 %
 0000048e : 000106b7;   % 183: 	li	a3, 0x0000ffff %
 0000048f : fff68693;   % 183:  %
-00000490 : 00000317;   % 184: 	call	PrintChar %
+00000490 : 00000317;   % 184: 	call	PRINT_CHAR %
 00000491 : 4b0300e7;   % 184:  %
 00000492 : 00000d13;   % 186: 	li	s10, 0 %
 00000493 : f3dff06f;   % 187: 	j	StarterLoop %
@@ -1184,12 +1184,12 @@ BEGIN
 00000499 : ff200737;   % 193: 	li	a4, 0xFF200604 %
 0000049a : 60470713;   % 193:  %
 0000049b : 00072703;   % 194: 	lw	a4, 0(a4) %
-0000049c : 00000317;   % 195: 	call	PrintChar %
+0000049c : 00000317;   % 195: 	call	PRINT_CHAR %
 0000049d : 480300e7;   % 195:  %
 0000049e : 0a000593;   % 196: 	li	a1, 160 %
 0000049f : 000106b7;   % 197: 	li	a3, 0x0000ffff %
 000004a0 : fff68693;   % 197:  %
-000004a1 : 00000317;   % 198: 	call	PrintChar %
+000004a1 : 00000317;   % 198: 	call	PRINT_CHAR %
 000004a2 : 46c300e7;   % 198:  %
 000004a3 : 00100d13;   % 200: 	li	s10, 1 %
 000004a4 : ef9ff06f;   % 201: 	j	StarterLoop %
@@ -1227,29 +1227,29 @@ BEGIN
 000004c4 : 40250513;   % 54:  %
 000004c5 : 00000593;   % 55: 	li	a1, 0		# x %
 000004c6 : 00000613;   % 56: 	li	a2, 0		# y %
-000004c7 : 00001317;   % 57: 	call	PrintTilemap %
+000004c7 : 00001317;   % 57: 	call	PRINTTilemap %
 000004c8 : 8d8300e7;   % 57:  %
 000004c9 : 0fc0f517;   % 60: 	la	a0, mesa %
 000004ca : d7450513;   % 60:  %
 000004cb : 08800593;   % 61: 	li	a1, 136 %
 000004cc : 06c00613;   % 62: 	li	a2, 108 %
-000004cd : 00000317;   % 63: 	call	Print %
+000004cd : 00000317;   % 63: 	call	PRINT %
 000004ce : 34c300e7;   % 63:  %
 000004cf : 01858593;   % 64: 	addi	a1, a1, 24 %
-000004d0 : 00000317;   % 65: 	call	PrintInversoH %
+000004d0 : 00000317;   % 65: 	call	PRINT_INVERSEH %
 000004d1 : 598300e7;   % 65:  %
 000004d2 : 0fc0f517;   % 68: 	la	a0, pokeball_red	 %
 000004d3 : cb850513;   % 68:  %
 000004d4 : 09a00593;   % 69: 	li	a1, 154 %
 000004d5 : 05000613;   % 70: 	li	a2, 80 %
 000004d6 : 02060613;   % 71: 	addi	a2, a2, 32	 %
-000004d7 : 00000317;   % 72: 	call	Print %
+000004d7 : 00000317;   % 72: 	call	PRINT %
 000004d8 : 324300e7;   % 72:  %
 000004d9 : ff058593;   % 73: 	addi	a1, a1, -16	 %
-000004da : 00000317;   % 74: 	call	Print %
+000004da : 00000317;   % 74: 	call	PRINT %
 000004db : 318300e7;   % 74:  %
 000004dc : 02058593;   % 75: 	addi	a1, a1, 32	 %
-000004dd : 00000317;   % 76: 	call	Print	 %
+000004dd : 00000317;   % 76: 	call	PRINT	 %
 000004de : 30c300e7;   % 76:  %
 000004df : 00012083;   % 78: 	lw	ra, 0(sp) %
 000004e0 : 00410113;   % 79: 	addi	sp, sp, 4 %
@@ -1465,12 +1465,12 @@ BEGIN
 000005b2 : 00128293;   % 23:         addi  	t0, t0, 1   		# incrementa endereco do bitmap %
 000005b3 : 001f8f93;   % 24:         addi  	t6, t6, 1   		# incrementa endereco da imagem %
 000005b4 : 00138393;   % 25:         addi  	t2, t2, 1   		# incrementa contador de coluna %
-000005b5 : ffc3c4e3;   % 26:         blt   	t2, t3, PrintLinha 	# cont da coluna < largura ?       %
+000005b5 : ffc3c4e3;   % 26:         blt   	t2, t3, PRINTLinha 	# cont da coluna < largura ?       %
 000005b6 : 14028293;   % 28:         addi  	t0, t0, 320 		# t0 += 320 %
 000005b7 : 41c282b3;   % 29:         sub   	t0, t0, t3  		# t0 -= largura da imagem %
 000005b8 : 000003b3;   % 30:         mv    	t2, zero    		# zera t2 (cont de coluna) %
 000005b9 : 00130313;   % 31:         addi  	t1, t1, 1   		# incrementa contador de linha %
-000005ba : fdd34ae3;   % 32:         bgt   	t4, t1, PrintLinha 	# altura > contador de linha ? %
+000005ba : fdd34ae3;   % 32:         bgt   	t4, t1, PRINTLinha 	# altura > contador de linha ? %
 000005bb : 00008067;   % 33:         ret               		# retorna %
 000005bc : fe410113;   % 19: 		addi 	sp, sp, -28 %
 000005bd : 00a12023;   % 21: 		sw	a0, 0(sp) %
@@ -1552,7 +1552,7 @@ BEGIN
 00000609 : 01812083;   % 106: 			lw	ra, 24(sp) %
 0000060a : 01c10113;   % 107: 			addi 	sp, sp, 28 %
 0000060b : 00008067;   % 108: 			ret				# retorna %
-0000060c : fe810113;   % 9: PrintInt:	addi 	sp, sp, -24			# Aloca espaco %
+0000060c : fe810113;   % 9: PRINTInt:	addi 	sp, sp, -24			# Aloca espaco %
 0000060d : 00112023;   % 10: 		sw 	ra, 0(sp)			# salva regs %
 0000060e : 00a12223;   % 11: 		sw 	a0, 4(sp)			 %
 0000060f : 00b12423;   % 12: 		sw 	a1, 8(sp)			 %
@@ -1585,7 +1585,7 @@ BEGIN
 0000062a : 00028023;   % 44: 		sb 	zero, 0(t0)			# insere \NULL na string %
 0000062b : 0fc18517;   % 46: 		la 	a0, TempBuffer			# Endereco do buffer da srting %
 0000062c : 6d650513;   % 46:  %
-0000062d : 2e0000ef;   % 47: 		jal 	PrintString			# chama o print string %
+0000062d : 2e0000ef;   % 47: 		jal 	PRINT_STRING			# chama o print string %
 0000062e : 00012083;   % 49: 		lw 	ra, 0(sp)			# recupera regs %
 0000062f : 00412503;   % 50: 		lw 	a0, 4(sp)			 %
 00000630 : 00812583;   % 51: 		lw 	a1, 8(sp)			 %
@@ -1611,13 +1611,13 @@ BEGIN
 00000644 : fff88893;   % 25: 	addi 	a7,a7,-1	# incrementa endereco da imagem %
 00000645 : 00660f33;   % 26: 	add	t5,a2,t1 %
 00000646 : 0f0f3f13;   % 27: 	sltiu	t5,t5,240 %
-00000647 : 020f0063;   % 28: 	beqz	t5,PulaInteracaoByteInverso %
+00000647 : 020f0063;   % 28: 	beqz	t5,PulaInteracaoByte_INVERSE %
 00000648 : 00758f33;   % 29: 	add	t5,a1,t2 %
 00000649 : 140f3f13;   % 30: 	sltiu	t5,t5,320 %
-0000064a : 000f0a63;   % 31: 	beqz	t5,PulaInteracaoByteInverso %
+0000064a : 000f0a63;   % 31: 	beqz	t5,PulaInteracaoByte_INVERSE %
 0000064b : 0c700f93;   % 32: 	li	t6, 0xC7 %
 0000064c : 0008cf03;   % 33: 	lbu 	t5,0(a7) 	# carrega em t6 uma word (4 pixeis) da imagem %
-0000064d : 01ff0463;   % 34: 	beq	t5, t6, PulaInteracaoByteInverso %
+0000064d : 01ff0463;   % 34: 	beq	t5, t6, PulaInteracaoByte_INVERSE %
 0000064e : 01e28023;   % 35: 	sb 	t5,0(t0) 	# imprime no bitmap a word (4 pixeis) da imagem %
 0000064f : 00128293;   % 37: 	addi 	t0,t0,1		# incrementa endereco do bitmap %
 00000650 : 00138393;   % 38: 	addi 	t2,t2,1 	# incrementa contador de coluna %
@@ -1707,7 +1707,7 @@ BEGIN
 000006a4 : 00000e93;   % 19: 	li	t4, 0		# cont de colunas %
 000006a5 : 00000f13;   % 20: 	li	t5, 0		# cont de linhas %
 000006a6 : 000e4f83;   % 22: 	lbu	t6, 0(t3)	 %
-000006a7 : 030000ef;   % 23: 	jal	CalculaEndTransposto	# retorno em a1 %
+000006a7 : 030000ef;   % 23: 	jal	CalculaEnd_TRANSPOSE	# retorno em a1 %
 000006a8 : 01f58023;   % 24: 	sb	t6, 0(a1) %
 000006a9 : 001e0e13;   % 25: 	addi	t3, t3, 1 %
 000006aa : 001e8e93;   % 26: 	addi	t4, t4, 1 %
@@ -1744,7 +1744,7 @@ BEGIN
 000006c9 : 00000e93;   % 22: 	li	t4, 0		# cont de colunas %
 000006ca : 00000f13;   % 23: 	li	t5, 0		# cont de linhas %
 000006cb : 000e4f83;   % 25: 	lbu	t6, 0(t3)	 %
-000006cc : 038000ef;   % 26: 	jal	CalculaEndTranspostoH	# retorno em a1 %
+000006cc : 038000ef;   % 26: 	jal	CalculaEnd_TRANSPOSEH	# retorno em a1 %
 000006cd : 01f58023;   % 27: 	sb	t6, 0(a1) %
 000006ce : 001e0e13;   % 29: 	addi	t3, t3, 1 %
 000006cf : 001e8e93;   % 30: 	addi	t4, t4, 1 %
@@ -1769,7 +1769,7 @@ BEGIN
 000006e2 : 03e686b3;   % 54: 	mul	a3, a3, t5 %
 000006e3 : 00d585b3;   % 55: 	add	a1, a1, a3 %
 000006e4 : 00008067;   % 56: 	ret %
-000006e5 : fec10113;   % 10: PrintString:	addi 	sp, sp, -20 %
+000006e5 : fec10113;   % 10: PRINT_STRING:	addi 	sp, sp, -20 %
 000006e6 : 00112023;   % 11: 		sw	ra, 0(sp) %
 000006e7 : 00812223;   % 12: 		sw	s0, 4(sp) %
 000006e8 : 00a12423;   % 13: 		sw	a0, 8(sp) %
@@ -1778,7 +1778,7 @@ BEGIN
 000006eb : 00a00433;   % 17:     		mv	s0, a0              		# s0 = endereco do caractere na string %
 000006ec : 00040503;   % 19: loopprintString:lb	a0, 0(s0)                 	# le em a0 o caracter a ser impresso %
 000006ed : 02050263;   % 21:     		beq     a0, zero, fimloopprintString	# string ASCIIZ termina com NULL %
-000006ee : b39ff0ef;   % 23:     		jal     PrintChar       		# imprime char %
+000006ee : b39ff0ef;   % 23:     		jal     PRINT_CHAR       		# imprime char %
 000006ef : 00858593;   % 25: 		addi    a1, a1, 8                 	# incrementa a coluna %
 000006f0 : 12c00293;   % 26: 		li 	t0, 300		 %
 000006f1 : 0055c663;   % 27: 		blt	a1, t0, NaoPulaLinha	    	# se ainda tiver lugar na linha %
@@ -1841,22 +1841,22 @@ BEGIN
 0000072a : 2c128293;   % 46:  %
 0000072b : 0002c283;   % 47: 	lbu	t0, 0(t0) %
 0000072c : 04029063;   % 48: 	bnez	t0, tileTranspostaH %
-0000072d : 00000317;   % 50: 	call	Print %
+0000072d : 00000317;   % 50: 	call	PRINT %
 0000072e : 9cc300e7;   % 50:  %
 0000072f : 0400006f;   % 51: 	j	proximaTile %
-00000730 : 00000317;   % 54: 	call	PrintInversoH %
+00000730 : 00000317;   % 54: 	call	PRINT_INVERSEH %
 00000731 : c18300e7;   % 54:  %
 00000732 : 0340006f;   % 55: 	j	proximaTile %
-00000733 : 00000317;   % 57: 	call	PrintInversoV %
+00000733 : 00000317;   % 57: 	call	PRINT_INVERSEV %
 00000734 : d1c300e7;   % 57:  %
 00000735 : 0280006f;   % 58: 	j	proximaTile %
-00000736 : 00000317;   % 60: 	call	PrintInversoHV %
+00000736 : 00000317;   % 60: 	call	PRINT_INVERSEHV %
 00000737 : c8c300e7;   % 60:  %
 00000738 : 01c0006f;   % 61: 	j	proximaTile %
-00000739 : 00000317;   % 63: 	call	PrintTransposto %
+00000739 : 00000317;   % 63: 	call	PRINT_TRANSPOSE %
 0000073a : d74300e7;   % 63:  %
 0000073b : 0100006f;   % 64: 	j	proximaTile %
-0000073c : 00000317;   % 66: 	call	PrintTranspostoH %
+0000073c : 00000317;   % 66: 	call	PRINT_TRANSPOSEH %
 0000073d : df0300e7;   % 66:  %
 0000073e : 0040006f;   % 67: 	j	proximaTile %
 0000073f : 01b00533;   % 70: 	mv	a0, s11 %
@@ -2066,12 +2066,12 @@ BEGIN
 0000080b : 0257f7b3;   % 53: 	remu	a5, a5, t0 %
 0000080c : 000106b7;   % 55: 	li	a3, 0x0000ff07 %
 0000080d : f0768693;   % 55:  %
-0000080e : fffff317;   % 56: 	call	PrintChar %
+0000080e : fffff317;   % 56: 	call	PRINT_CHAR %
 0000080f : 6b8300e7;   % 56:  %
 00000810 : 00860613;   % 57: 	addi	a2, a2, 8 %
 00000811 : 000106b7;   % 58: 	li	a3, 0x0000ffff %
 00000812 : fff68693;   % 58:  %
-00000813 : fffff317;   % 59: 	call	PrintChar %
+00000813 : fffff317;   % 59: 	call	PRINT_CHAR %
 00000814 : 6a4300e7;   % 59:  %
 00000815 : ff860613;   % 60: 	addi	a2, a2, -8 %
 00000816 : f65ff06f;   % 61: 	j	MenuLoop %
@@ -2083,12 +2083,12 @@ BEGIN
 0000081c : 00860613;   % 69: 	addi	a2, a2, 8 %
 0000081d : 000106b7;   % 70: 	li	a3, 0x0000ff07 %
 0000081e : f0768693;   % 70:  %
-0000081f : fffff317;   % 71: 	call	PrintChar %
+0000081f : fffff317;   % 71: 	call	PRINT_CHAR %
 00000820 : 674300e7;   % 71:  %
 00000821 : ff860613;   % 72: 	addi	a2, a2, -8 %
 00000822 : 000106b7;   % 73: 	li	a3, 0x0000ffff %
 00000823 : fff68693;   % 73:  %
-00000824 : fffff317;   % 74: 	call	PrintChar %
+00000824 : fffff317;   % 74: 	call	PRINT_CHAR %
 00000825 : 660300e7;   % 74:  %
 00000826 : f25ff06f;   % 75: 	j	MenuLoop %
 00000827 : 00078863;   % 78: 	beqz	a5, usaShoe %
@@ -2116,7 +2116,7 @@ BEGIN
 0000083d : ff2006b7;   % 119: 	li	a3, 0xFF200604 %
 0000083e : 60468693;   % 119:  %
 0000083f : 0006a683;   % 120: 	lw	a3, 0(a3) %
-00000840 : 00000317;   % 121: 	call	PrintTilemap %
+00000840 : 00000317;   % 121: 	call	PRINTTilemap %
 00000841 : af4300e7;   % 121:  %
 00000842 : 0fc19517;   % 123: 	la	a0, SHOES %
 00000843 : 1df50513;   % 123:  %
@@ -2125,7 +2125,7 @@ BEGIN
 00000846 : 00d00733;   % 126: 	mv	a4, a3 %
 00000847 : 000106b7;   % 127: 	li	a3, 0x0000ff00 %
 00000848 : f0068693;   % 127:  %
-00000849 : 00000317;   % 128: 	call	PrintString %
+00000849 : 00000317;   % 128: 	call	PRINT_STRING %
 0000084a : a70300e7;   % 128:  %
 0000084b : 0fc18517;   % 130: 	la	a0, shoes %
 0000084c : e3a50513;   % 130:  %
@@ -2141,7 +2141,7 @@ BEGIN
 00000856 : 000106b7;   % 138: 	li	a3, 0x0000ff05	 %
 00000857 : f0568693;   % 138:  %
 00000858 : 04858593;   % 140: 	addi	a1, a1, 72 %
-00000859 : 00000317;   % 141: 	call	PrintString %
+00000859 : 00000317;   % 141: 	call	PRINT_STRING %
 0000085a : a30300e7;   % 141:  %
 0000085b : 0fc19517;   % 143: 	la	a0, REPELENT %
 0000085c : 18a50513;   % 143:  %
@@ -2149,7 +2149,7 @@ BEGIN
 0000085e : 00860613;   % 145: 	addi	a2, a2, 8 %
 0000085f : 000106b7;   % 146: 	li	a3, 0x0000ff00 %
 00000860 : f0068693;   % 146:  %
-00000861 : 00000317;   % 147: 	call	PrintString %
+00000861 : 00000317;   % 147: 	call	PRINT_STRING %
 00000862 : a10300e7;   % 147:  %
 00000863 : 0fc18517;   % 149: 	la	a0, repelent %
 00000864 : ddb50513;   % 149:  %
@@ -2165,7 +2165,7 @@ BEGIN
 0000086e : 000106b7;   % 157: 	li	a3, 0x0000ff05	 %
 0000086f : f0568693;   % 157:  %
 00000870 : 04858593;   % 159: 	addi	a1, a1, 72 %
-00000871 : 00000317;   % 160: 	call	PrintString %
+00000871 : 00000317;   % 160: 	call	PRINT_STRING %
 00000872 : 9d0300e7;   % 160:  %
 00000873 : 0fc19517;   % 162: 	la	a0, CONTINUE %
 00000874 : 12150513;   % 162:  %
@@ -2173,7 +2173,7 @@ BEGIN
 00000876 : 00860613;   % 164: 	addi	a2, a2, 8 %
 00000877 : 000106b7;   % 165: 	li	a3, 0x0000ff00 %
 00000878 : f0068693;   % 165:  %
-00000879 : 00000317;   % 166: 	call	PrintString %
+00000879 : 00000317;   % 166: 	call	PRINT_STRING %
 0000087a : 9b0300e7;   % 166:  %
 0000087b : 03e00513;   % 168: 	li	a0, '>' %
 0000087c : 00000593;   % 169: 	li	a1, 0 %
@@ -2181,7 +2181,7 @@ BEGIN
 0000087e : ff060613;   % 171: 	addi	a2, a2, -16 %
 0000087f : 000106b7;   % 172: 	li	a3, 0x0000ff07 %
 00000880 : f0768693;   % 172:  %
-00000881 : fffff317;   % 173: 	call	PrintChar %
+00000881 : fffff317;   % 173: 	call	PRINT_CHAR %
 00000882 : 4ec300e7;   % 173:  %
 00000883 : 00000793;   % 175: 	li	a5, 0			# flag de exit %
 00000884 : 00012083;   % 177: 	lw	ra, 0(sp) %
@@ -2441,25 +2441,25 @@ BEGIN
 00000982 : 00112023;   % 153: 	sw	ra, 0(sp) %
 00000983 : 00000317;   % 155: 	call	DeixaFundoCinza %
 00000984 : 0c4300e7;   % 155:  %
-00000985 : 00000317;   % 156: 	call	PrintBattleBKG %
+00000985 : 00000317;   % 156: 	call	PRINTBattleBKG %
 00000986 : 104300e7;   % 156:  %
 00000987 : 0fc12517;   % 158: 	la	a0, lower_battle_circle %
 00000988 : af450513;   % 158:  %
 00000989 : 02800593;   % 159: 	li	a1, 40 %
 0000098a : 08800613;   % 160: 	li	a2, 136 %
-0000098b : fffff317;   % 161: 	call	Print %
+0000098b : fffff317;   % 161: 	call	PRINT %
 0000098c : 054300e7;   % 161:  %
 0000098d : 06800593;   % 162: 	li	a1, 104 %
-0000098e : fffff317;   % 163: 	call	PrintInversoH %
+0000098e : fffff317;   % 163: 	call	PRINT_INVERSEH %
 0000098f : 2a0300e7;   % 163:  %
 00000990 : 0fc12517;   % 165: 	la	a0, upper_battle_circle %
 00000991 : ed850513;   % 165:  %
 00000992 : 09800593;   % 166: 	li	a1, 152 %
 00000993 : 04000613;   % 167: 	li	a2, 64 %
-00000994 : fffff317;   % 168: 	call	Print %
+00000994 : fffff317;   % 168: 	call	PRINT %
 00000995 : 030300e7;   % 168:  %
 00000996 : 0d800593;   % 169: 	li	a1, 216 %
-00000997 : fffff317;   % 170: 	call	PrintInversoH %
+00000997 : fffff317;   % 170: 	call	PRINT_INVERSEH %
 00000998 : 27c300e7;   % 170:  %
 00000999 : 00000317;   % 172: 	call	ImprimePokemons	 %
 0000099a : 058300e7;   % 172:  %
@@ -2469,12 +2469,12 @@ BEGIN
 0000099e : cd950513;   % 175:  %
 0000099f : 02800593;   % 176: 	li	a1, 40 %
 000009a0 : 09800613;   % 177: 	li	a2, 152 %
-000009a1 : fffff317;   % 178: 	call	PrintTilemap %
+000009a1 : fffff317;   % 178: 	call	PRINTTilemap %
 000009a2 : 570300e7;   % 178:  %
 000009a3 : 0fc19517;   % 179: 	la	a0, tilemap_battle_menu %
 000009a4 : d3050513;   % 179:  %
 000009a5 : 09058593;   % 180: 	addi	a1, a1, 144 %
-000009a6 : fffff317;   % 181: 	call	PrintTilemap %
+000009a6 : fffff317;   % 181: 	call	PRINTTilemap %
 000009a7 : 55c300e7;   % 181:  %
 000009a8 : 00000317;   % 183: 	call	ImprimeMensagemDeLuta %
 000009a9 : 024300e7;   % 183:  %

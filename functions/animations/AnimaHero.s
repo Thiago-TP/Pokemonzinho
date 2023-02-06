@@ -10,7 +10,7 @@ AnimaHero:
 	la	t0, player
 	lhu	a1, 4(t0)	# x novo
 	lhu	a2, 6(t0)	# y novo
-	li	a3, frameAddress
+	li	a3, FRAME_ADDRESS
 	lw	a3, 0(a3)
 	xori	a3, a3, 1	# frame oculto
 	call	AtualizaPoseHero
@@ -18,13 +18,13 @@ AnimaHero:
 	la	t0, inversoH
 	lbu	t0, 0(t0)
 	li	t1, 1
-	beq	t1, t0, imprimeInverso
-	call	Print
+	beq	t1, t0, imprime_INVERSE
+	call	PRINT
 	j	fimAnimaHero
-imprimeInverso:
-	call	PrintInversoH
+imprime_INVERSE:
+	call	PRINT_INVERSEH
 fimAnimaHero:	
-	li	t0, frameAddress
+	li	t0, FRAME_ADDRESS
 	sw	a3, 0(t0)
 	
 	la	a0, player	

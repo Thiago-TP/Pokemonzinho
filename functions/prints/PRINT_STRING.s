@@ -1,5 +1,5 @@
 #####################################
-#  PrintSring                       #
+#  PRINTSring                       #
 #  a0    =  endereco da string      #
 #  a1    =  x                       #
 #  a2    =  y                       #
@@ -7,7 +7,7 @@
 #  a4 	 =  frame (0 ou 1)	    #
 #####################################
 
-PrintString:	addi 	sp, sp, -20
+PRINT_STRING:	addi 	sp, sp, -20
 		sw	ra, 0(sp)
 		sw	s0, 4(sp)
 		sw	a0, 8(sp)
@@ -20,7 +20,7 @@ loopprintString:lb	a0, 0(s0)                 	# le em a0 o caracter a ser impres
 
     		beq     a0, zero, fimloopprintString	# string ASCIIZ termina com NULL
 
-    		jal     PrintChar       		# imprime char
+    		jal     PRINT_CHAR       		# imprime char
     		
 		addi    a1, a1, 8                 	# incrementa a coluna
 		li 	t0, 300		

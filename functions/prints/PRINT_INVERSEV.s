@@ -1,4 +1,4 @@
-PrintInversoV:
+PRINT_INVERSEV:
 	li	t0, 0xFF0
 	add	t0, t0, a3	
 	slli	t0, t0, 20	# end base

@@ -1,60 +1,60 @@
 .data
-.include "AsSpriteTudao.data"
+.include "ALL_DATAS.data"
 # globais estaticas/imutaveis
-.eqv	frameAddress	0xFF200604
-.eqv	idleTime	150		# ms, tempo que uma  sprite do trn deve permanecer
+.eqv	FRAME_ADDRESS	0xFF200604
+.eqv	idleTime		150		# ms, tempo que uma  sprite do trn deve permanecer
 .eqv	run_idleTime	50		# ms, tempo que uma  sprite do trn deve permanecer
 .eqv	jumpIdleTime	30
-.eqv	readTime	1500		# ms, tempo dado ao jogador para ler a linha de dialogo
-.eqv	normal_step	2
-.eqv	run_step	4
+.eqv	readTime		1500		# ms, tempo dado ao jogador para ler a linha de dialogo
+.eqv	normal_step		2
+.eqv	run_step		4
 # globais dinamicas/mutaveis
-menu_pkmn:	.byte	0	# flag de utilizacao do menu de selecao do pokemon inicial
-lastTime:	.word	0	# registro do tempo da ultima sprite do player impressa
-lastTimeMsc:	.word	0	# registro do tempo da ultima nota tocada
-noteCount:	.word	0	# contador de notas tocadas
-inversoH:	.byte	0	# flag de print inverso na horizontal
-inversoH_TLM:	.byte	0	# flag de print inverso horizontal no tilemap
-inversoV_TLM:	.byte	0	# flag de print inverso vertical no tilemap
-inversoHV_TLM:	.byte	0	# flag de print inverso hor + ver no tilemap
-transposto_TLM:	.byte	0	# flag de print transposto no tilemap
-transpostoH_TLM:.byte	0	# flag de print transposto + H no tilemap
-item:		.byte	0	# flag de item (shoes)
-repelent:	.byte	0	# flag de item (repelente)
-bateu:		.byte	0	# flag de colisao
-fase:		.byte	0	# num da fase atual
-fim_da_fase:	.byte	0	# flag de fim da fase
-neutro:	.word	0	# sprite neutra (quando sem input)
-player:	.half 152, 220,	# x, y atuais
-	      152, 220,	# x, y novos
-	.byte 0,	# ID do pokemon escolhido
-	.byte 0		# ID do pokemon capturado
-oak_struct:	.half 152, 220,	# x, y atuais
-	      	      152, 220,	# x, y novos		
+menu_pkmn:		.byte	0			# flag de utilizacao do menu de selecao do pokemon inicial
+lastTime:		.word	0			# registro do tempo da ultima sprite do player impressa
+lastTimeMsc:	.word	0			# registro do tempo da ultima nota tocada
+noteCount:		.word	0			# contador de notas tocadas
+inversoH:		.byte	0			# flag de print inverso na horizontal
+inversoH_TLM:	.byte	0			# flag de print inverso horizontal no tilemap
+inversoV_TLM:	.byte	0			# flag de print inverso vertical no tilemap
+inversoHV_TLM:	.byte	0			# flag de print inverso hor + ver no tilemap
+transposto_TLM:	.byte	0			# flag de print transposto no tilemap
+transpostoH_TLM:.byte	0			# flag de print transposto + H no tilemap
+item:			.byte	0			# flag de item (shoes)
+repelent:		.byte	0			# flag de item (repelente)
+bateu:			.byte	0			# flag de colisao
+fase:			.byte	0			# num da fase atual
+fim_da_fase:	.byte	0			# flag de fim da fase
+neutro:			.word	0			# sprite neutra (quando sem input)
+player:			.half 	152, 220,	# x, y atuais
+	      				152, 220,	# x, y novos
+				.byte 	0,			# ID do pokemon escolhido
+						0			# ID do pokemon capturado
+oak_struct:		.half 	152, 220,	# x, y atuais
+	      	      		152, 220,	# x, y novos		
 	      	      
 .text
 # Regs do GameLoop
 # s0 = estado do player (0 = parado, 1 = andando1, 2 = andando2)
 main:
-	call	EscolhePokemon	# tela #0 = selecao de pokemon
-	call	AreaAberta	# tela #1 = area aberta
-	call	Ginasio		# tela #2 = ginasio
-	call	TelaFinal	# jogar de novo ?
-GameEnd:
-	j	GameEnd
-.include "AsFuncaoTudao.s"
+	call	OAKS_LAB	# tela #0 = selecao de pokemon
+	call	ROUTE_1		# tela #1 = area aberta
+	call	GYM			# tela #2 = ginasio
+	j		END_SCREEN	# jogar de novo ?
+
+.include "ALL_FUNCTIONS.s"
 
 
 
 WildEncounter:
 	addi	sp, sp, -4
-	sw	ra, 0(sp)
+	sw		ra, 0(sp)
 	
 	# verifica se o player esta na fase 1 (area aberta)
-	la	t0, fase
-	lbu	t0, 0(t0)
-	li	t1, 1
-	bne	t0, t1, semEncontro
+	la		t0, fase
+	lbu		t0, 0(t0)
+	li		t1, 1
+	bne		t0, t1, semEncontro
+
 	# verifica se a sprite do player esta num certo estado
 	bnez	s0, semEncontro
 	# verifica se o player esta em mato alto
@@ -82,7 +82,7 @@ PlayerNoMato:
 	# encontra do indice do jogador no tilemap da rota 1
 	srli	t1, t1, 4	# X = x // 16
 	srli	t2, t2, 4	# Y = y // 16
-	la	t0, tilemap_rota1
+	la	t0, TILEMAP_ROUTE1
 	addi	t0, t0, 3	# t0 <- end da primeira tile
 	add	t0, t0, t1	# end + X
 	li	t3, 20
@@ -111,23 +111,23 @@ Porrada:
 	la	t0, player
 	lbu	s0, 8(t0)
 	# s1 = ID do pokemon inimigo	
-	li	s1, 133		# 133 = ID do Eevee
+	li		s1, 133		# 133 = ID do Eevee
 	# a3 = frame oculto
-	li	a3, frameAddress
-	lw	a3, 0(a3)
+	li		a3, FRAME_ADDRESS
+	lw		a3, 0(a3)
 	xori	a3, a3, 1
 	# imprime a tela de luta no frame oposto
 	call	ImprimeTelaDeLuta
 	# mostra a tela	
-	li	t0, frameAddress
-	sw	a3, 0(t0)
+	li		t0, FRAME_ADDRESS
+	sw		a3, 0(t0)
 
 SetupLuta:
-	j	SetupLuta
+	j		SetupLuta
 								
-	lw	ra, 0(sp)
-	lw	s0, 4(sp)
-	lw	s1, 8(sp)
+	lw		ra, 0(sp)
+	lw		s0, 4(sp)
+	lw		s1, 8(sp)
 	addi	sp, sp, 12
 	ret						
 
@@ -150,40 +150,40 @@ tilemap_battle_menu: .byte 12, 6, 8,	# menu de opcoes de golpe, run, pkmn
 .text
 ImprimeTelaDeLuta:
 	addi	sp, sp, -4
-	sw	ra, 0(sp)
+	sw		ra, 0(sp)
 	
 	call	DeixaFundoCinza
-	call	PrintBattleBKG
+	call	PRINTBattleBKG
 	
-	la	a0, lower_battle_circle
-	li	a1, 40
-	li	a2, 136
-	call	Print
-	li	a1, 104
-	call	PrintInversoH
+	la		a0, lower_battle_circle
+	li		a1, 40
+	li		a2, 136
+	call	PRINT
+	li		a1, 104
+	call	PRINT_INVERSEH
 	
-	la	a0, upper_battle_circle
-	li	a1, 152
-	li	a2, 64
-	call	Print
-	li	a1, 216
-	call	PrintInversoH
+	la		a0, upper_battle_circle
+	li		a1, 152
+	li		a2, 64
+	call	PRINT
+	li		a1, 216
+	call	PRINT_INVERSEH
 	
 	call	ImprimePokemons	
 	call	ImprimeEstadosDosPkmns
 	
-	la	a0, tilemap_battleMSG
-	li	a1, 40
-	li	a2, 152
-	call	PrintTilemap
-	la	a0, tilemap_battle_menu
+	la		a0, tilemap_battleMSG
+	li		a1, 40
+	li		a2, 152
+	call	PRINT_TILEMAP
+	la		a0, tilemap_battle_menu
 	addi	a1, a1, 144
-	call	PrintTilemap
+	call	PRINT_TILEMAP
 	
 	call	ImprimeMensagemDeLuta
 	call	ImprimeOpcoesDeLuta
 	
-	lw	ra, 0(sp)
+	lw		ra, 0(sp)
 	addi	sp, sp, 4
 	ret	
 
@@ -219,7 +219,7 @@ fundoCinza:
 	addi	sp, sp, 4
 	ret	
 									
-PrintBattleBKG:
+PRINTBattleBKG:
 	li	t0, 0xF6F6F6F6
 	li	t1, 0xFF0
 	add	t1, t1, a3
@@ -341,24 +341,5 @@ eevee_struct:
 																
 																	
 																		
-																			
-																				
-																					
-																						
-																							
-																								
-																									
-																										
-																											
-																												
-																													
-																														
-																															
-																																
-																																	
-																																			
-.text	
-Ginasio:
-	ret
-TelaFinal:
-	ret
+
+
