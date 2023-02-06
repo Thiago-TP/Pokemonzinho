@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4f69a718-48a7-453b-b6f7-13ef02f1092f" name="Changes" comment="no scrolling &gt;:)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/funcoes/PrintTilemap.s" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes/PrintTilemap.s" afterDir="false" />
+>>>>>>> 97a1a878a5f1e6cf8ab900354d46ae6e5e559119
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
