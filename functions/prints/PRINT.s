@@ -42,5 +42,4 @@ PRINT:
         mv    	t2, zero    		    # zera t2 (cont de coluna)
         addi  	t1, t1, 1   		    # incrementa contador de linha
         bgt   	t4, t1, PRINT_LINE 	    # altura > contador de linha ?
-
-        ret               		        # retorna
+    ret               		        # retorna
