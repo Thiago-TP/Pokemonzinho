@@ -1,6 +1,8 @@
 .include "../sprites/CHAR_TABLE.data"
+
 .include "../sprites/decorations/pokeball_red.data"
 .include "../sprites/decorations/mesa.data"
+.include "../sprites/decorations/FIGHT_BACKGROUND.data" 
 
 .include "../sprites/people/oak_n1.data"
 .include "../sprites/people/oak_n2.data"
