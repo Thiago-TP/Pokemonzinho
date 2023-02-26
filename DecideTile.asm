@@ -127,6 +127,14 @@ DecideTile:
 	beq	a1, t0, tile55
 	li	t0, 56
 	beq	a1, t0, tile56
+	li	t0, 57
+	beq	a1, t0, tile57
+	li	t0, 58
+	beq	a1, t0, tile58
+	li	t0, 59
+	beq	a1, t0, tile59
+	li	t0, 60
+	beq	a1, t0, tile60
 fimDecideTile:
 	ret
 	
@@ -184,7 +192,7 @@ tile19:	la	a1, tile_grass3
 	j	fimDecideTile
 tile20:	la	a1, tile_grass4
 	j	fimDecideTile
-tile21:	la	a1, tile_treemid
+tile25:	la	a1, tile_treemid
 	j	fimDecideTile
 tile22:	la	a1, tile_treemid
 	li	a5,1
@@ -194,14 +202,14 @@ tile23:	la	a1, tile_treetrunk
 tile24:	la	a1, tile_treetrunk
 	li	a5,1
 	j	fimDecideTile
-tile25:	la	a1, tile_yellowledgeleft
-	j	fimDecideTile
 tile26:	la	a1, tile_yellowledgeleft
+	j	fimDecideTile
+tile27:	la	a1, tile_yellowledgeleft
 	li	a5,1
 	j	fimDecideTile
-tile27:	la	a1, tile_yellowledgemiddle
+tile28:	la	a1, tile_yellowledgemiddle
 	j	fimDecideTile
-tile28:	la	a1, tile_flower
+tile21:	la	a1, tile_flower
 	j	fimDecideTile
 tile29:	la	a1, tile_greenledgeleft
 	j	fimDecideTile
@@ -269,5 +277,16 @@ tile55:	la	a1, tile_battleMSG1
 	li	a5,1
 	j	fimDecideTile
 tile56:	la	a1, tile_battleMSG2
+	j	fimDecideTile
+	li	a5,1
+tile57: la	a1, tile_yellow1
+	li	a5,1
+	j	fimDecideTile
+tile58: la	a1,tile_yellowedge
+	j	fimDecideTile
+tile59: la	a1,tile_yellowedge
+	li	a5,1
+	j	fimDecideTile
+tile60: la	a1, tile_yellow8
 	li	a5,1
 	j	fimDecideTile

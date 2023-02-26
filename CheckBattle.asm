@@ -5,9 +5,10 @@
 #	   não retorna nada		#
 #					#
 #########################################
-ANIMATIONS:
+CHECKS_BATTLE:
+	addi	sp,sp,-4
 	sw	ra,0(sp)
-	la	s1,SETTING_ANIMATION
+	la	s1,SETTING_BATTLE_ANIMATION
 	lb	t1,0(s1)
 	bnez	t1,JUMP_ANIMMATION
 	la	t0, TIMER_ANIMATION
@@ -21,11 +22,15 @@ JUMP_ANIMMATION:
 	lw	t1,0(t0)
 	csrr	t2,time
 	sub	t1,t2,t1
-	li	t2,1400
+	li	t2,1500
 	blt	t1,t2,END_ANIMATION
+	la	t0,BATTLE_ON
+	li	t1,1
+	sb	t1,0(t0)	
 	sb	zero,0(s1)	
 END_ANIMATION:
 	lw	ra,0(sp)
+	addi	sp,sp,4
 	ret
 
 #########################################
